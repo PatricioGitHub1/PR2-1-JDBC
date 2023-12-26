@@ -7,7 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+// Class the manages the different queries to the Database
 public class ManagerDB {
+
+    // Function to connect and disconnect
     public static Connection connect (String filePath) {
         Connection conn = null;
         
@@ -33,6 +36,7 @@ public class ManagerDB {
         } catch (SQLException ex) { System.out.println(ex.getMessage()); }
     }
 
+    // Query execution
     public static int queryUpdate (Connection conn, String sql) {
         int result = 0;
         try {
@@ -41,6 +45,8 @@ public class ManagerDB {
         } catch (SQLException e) { e.printStackTrace(); }
         return result;
     }
+
+    // Functions to insert rows to Faction and Characters tables
 
     public static void queryInsertFaction (Connection conn, String name, String summary) {
         String query = String.format("insert into Factions(name, summary) values(\'%s\', \'%s\');", name, summary);
@@ -52,6 +58,7 @@ public class ManagerDB {
         queryUpdate(conn, query);
     }
 
+    // Function to get ResultSet from a query
     public static ResultSet querySelect (Connection conn, String sql) {
         ResultSet rs = null;
         try {

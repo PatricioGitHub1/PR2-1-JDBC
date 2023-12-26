@@ -38,6 +38,7 @@ public class MenuOptions {
         this.conn = conn;
     }
 
+    // Function that runs main Menu
     public void showMenu() throws SQLException {
         String input;
         Scanner sc = new Scanner(System.in);
@@ -100,6 +101,7 @@ public class MenuOptions {
     
     }
 
+    // Menu to choose the Table to show
     public void showMenu1(Scanner sc) {
         System.out.print("\n" + MENU_TABLES);
         String input = sc.nextLine();
@@ -122,6 +124,7 @@ public class MenuOptions {
         }
     }
 
+    // Menu for picking a Faction and returning the id in String
     public String factionPickerMenu(Scanner sc) {
         try {
             System.out.print("\n" + MENU_FACTIONS);
@@ -141,6 +144,7 @@ public class MenuOptions {
         return null;
     }
 
+    // Function to print a ResultSet in different layouts depending on the Enum provided
     public void printFormatedResult(ResultSet rs, Output out) {
         try {
             ResultSetMetaData rsmd = rs.getMetaData();

@@ -33,6 +33,7 @@ public class Main {
             Thread.sleep(500);
             System.out.print(" . \n");
             
+            // Access funcion from the Class the handles the different Menus
             MenuOptions menuOptions = new MenuOptions(conn);
             menuOptions.showMenu();
 
